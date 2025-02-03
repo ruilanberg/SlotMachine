@@ -5,19 +5,18 @@ namespace Game.SlotMath
 {
     public class MathDraw
     {
-        private int _totalPlays = 0;
         private int _jackpot = 300;
         private const int NUM_SYMBOLS = 10;
         private const int NUM_REELS = 3;
         private const int SYMBOLS_PER_REEL = 3;
         private const int CHANCE_JACKPOT = 200;
 
-        public (bool, long,List<int>[]) SimuteSpin()
+        public (bool, long, long, List<int>[]) SimuteSpin()
         {
-            _totalPlays++;
-
             List<int>[] drawnNumbers = GenerateNumbersGrid();
 
+            long prize = 0;
+            long jackpotPrize = 0;
             bool isWinJackpot = CheckJackpot();
             if (isWinJackpot)
             {
@@ -32,7 +31,7 @@ namespace Game.SlotMath
                 Debug.Log($"Jackpot not activated. Current jackpot value: {_jackpot}");
             }
 
-            return drawnNumbers;
+            return (isWinJackpot, jackpotPrize, prize, drawnNumbers);
         }
 
         private List<int>[] GenerateNumbersGrid()

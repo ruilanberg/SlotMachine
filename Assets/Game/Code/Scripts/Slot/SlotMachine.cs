@@ -35,13 +35,13 @@ namespace Game.Slot
             await UniTask.Delay(DELAY_SHOW_RESULT);
 
             MathDraw math = new MathDraw();
-            var result = math.SimuteSpin();
-            for (int i = 0; i < result.Length; i++)
+            var (isWinJackpot, jackpotPrize, prize, drawnNumbers) = math.SimuteSpin();
+            for (int i = 0; i < drawnNumbers.Length; i++)
             {
                 List<SymbolData> symbols = new List<SymbolData>();
-                for (int x = 0; x < result[i].Count; x++)
+                for (int x = 0; x < drawnNumbers[i].Count; x++)
                 {
-                    symbols.Add(_symbolStorageData.FindByID(result[i][x]));
+                    symbols.Add(_symbolStorageData.FindByID(drawnNumbers[i][x]));
                 }
                 SymbolData offsetRandomSymbol = _symbolStorageData.FindByID(Random.Range(1, 10 + 1));
                 symbols.Add(offsetRandomSymbol);
