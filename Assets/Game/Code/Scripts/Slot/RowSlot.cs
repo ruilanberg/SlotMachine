@@ -81,8 +81,6 @@ namespace Game.Slot
                 Debug.Log($"{topSlotResult} - {_offsetPositionSymbols}");
                 if(topSlotResult.transform.localPosition.y <= _offsetPositionSymbols)
                 {
-                    Debug.Log($"{topSlotResult} - {_offsetPositionSymbols}");
-
                     _isSpin = false;
                     _showResult = false;
 

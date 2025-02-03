@@ -47,11 +47,12 @@ namespace Game.Slot
                 symbols.Add(offsetRandomSymbol);
 
                 _rows[i].ShowResult(symbols.ToArray());
-
-                _lockSystem.UnlockAll();
             }
 
             _analytics.EndSpin(_creditRepository.LoadCurrentData());
+
+            await UniTask.Delay(1000);
+            _lockSystem.UnlockAll();
         }
 
         private void GenerateInitRandomRows()
