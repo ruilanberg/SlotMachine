@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd"
+>
+    <engine:VisualElement name="PanelElement" style="width: 100%; height: 100%; align-items: center; justify-content: center">
+        <engine:VisualElement name="PopupElement" 
+        style="background-color: rgb(74, 71, 150); border-radius: 5px 5px 5px 5px;
+        width: 275px; height: 140px; margin-bottom: 45px; justify-content: center">
+            <engine:VisualElement name="ValueElement" style="height: 50px ">
+                <engine:Label name="CurrentCreditLabel" style="-unity-text-align: middle-center" text="0">
+                </engine:Label>
+            </engine:VisualElement>
+            <engine:VisualElement name="ButtonsElement" style="height: 50px; flex-direction: row; justify-content: space-between">
+                <engine:VisualElement name="PlusButtonsElement" style="height: 50px; flex-direction: row; justify-content: center">
+                    <engine:Button name="OneMoreButton" text="+1">
+                    </engine:Button>
+
+                    <engine:Button name="TwoMoreButton" text="+2">
+                    </engine:Button>
+
+                    <engine:Button name="FiveMoreButton" text="+5">
+                    </engine:Button>
+                </engine:VisualElement>
+
+                <engine:Button name="ConfirmButton" text="Confirm">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="General" entry="CONFIRM">
+                        </UnityEngine.Localization.LocalizedString>
+                    </Bindings>
+                </engine:Button>
+            </engine:VisualElement>
+        </engine:VisualElement>
+
+    </engine:VisualElement>
+</engine:UXML>

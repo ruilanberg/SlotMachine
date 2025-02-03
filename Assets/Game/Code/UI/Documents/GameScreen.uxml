@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd"
+>
+    <engine:VisualElement name="PanelElement" style="width: 100%; height: 100%; justify-content: flex-end">
+        <engine:VisualElement name="Baseboard" style="width: 100%; height: 60 px; justify-content: space-around; flex-direction: row">
+            <engine:VisualElement name="CashElement" style="flex-direction: row">
+                <engine:Button name="CashOutButton" style="width: 70px;" text="Cash Out">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="General" entry="CASH_OUT">
+                        </UnityEngine.Localization.LocalizedString>
+                    </Bindings>
+                </engine:Button>
+
+                <engine:Button name="CashInButton" style="width: 70px;" text="Cash In">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="General" entry="CASH_IN">
+                        </UnityEngine.Localization.LocalizedString>
+                    </Bindings>
+                </engine:Button>
+
+                <engine:Button name="HelpButton" style="width: 40px;" text="Help">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="General" entry="HELP">
+                        </UnityEngine.Localization.LocalizedString>
+                    </Bindings>
+                </engine:Button>
+            </engine:VisualElement>
+
+            <engine:VisualElement name="CreditElement" style="flex-direction: row">
+                <engine:VisualElement name="CurrentCreditElement">
+                    <engine:Label name="CurrentCreditLabel" text="0" style="-unity-text-align: lower-center">
+                    </engine:Label>
+
+                    <engine:Label name="TittleCurrentCreditLabel"  style="-unity-text-align: upper-center" text="CREDIT">
+                        <Bindings>
+                            <UnityEngine.Localization.LocalizedString property="text" table="General" entry="CREDIT">
+                            </UnityEngine.Localization.LocalizedString>
+                        </Bindings>
+                    </engine:Label>
+                </engine:VisualElement>
+
+                <engine:VisualElement name="WinCreditElement">                    
+                    <engine:Label name="WinCreditLabel" text="0" style="-unity-text-align: lower-center">
+                    </engine:Label>
+
+                    <engine:Label name="TittleWinCreditLabel"  style="-unity-text-align: upper-center" text="WIN">
+                        <Bindings>
+                            <UnityEngine.Localization.LocalizedString property="text" table="General" entry="WIN">
+                            </UnityEngine.Localization.LocalizedString>
+                        </Bindings>
+                    </engine:Label>
+                </engine:VisualElement>
+
+            </engine:VisualElement>
+
+            <engine:VisualElement name="BetElement" style="flex-direction: row">
+                <engine:Button name="LessBetButton" text="-">
+                </engine:Button>
+
+                <engine:Label name="CurrentBetLabel" text="0" style="-unity-text-align: middle-center">
+                </engine:Label>
+
+                <engine:Button name="PlusBetButton" text="+">
+                </engine:Button>
+
+                <engine:Button name="MaxBetButton" text="Max">
+                </engine:Button>
+            </engine:VisualElement>
+
+            <engine:VisualElement name="SpinElement" style="flex-direction: row">
+                <engine:Button name="AutoSpinButton" text="Auto">
+                </engine:Button>
+
+                <engine:Button name="SpinButton" text="Spin">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="General" entry="SPIN">
+                        </UnityEngine.Localization.LocalizedString>
+                    </Bindings>
+                </engine:Button>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
