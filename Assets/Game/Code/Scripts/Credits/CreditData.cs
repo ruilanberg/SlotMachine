@@ -7,6 +7,7 @@ namespace Game.Credits
     public class CreditData : ICreditRepository
     {
         public ReactiveProperty<long> CurrentCredit {  get; private set; }
+        public ReactiveProperty<long> WinCredit {  get; private set; }
 
         public CreditData() 
         {
@@ -16,6 +17,7 @@ namespace Game.Credits
         public void Init()
         {
             CurrentCredit = new ReactiveProperty<long>(0);
+            WinCredit = new ReactiveProperty<long>(0);
         }
 
         public void UpdateCurrentData(long credits)
@@ -23,6 +25,12 @@ namespace Game.Credits
             CurrentCredit.Value = credits;
         }
 
+        public void UpdateWinData(long winCredit) 
+        {
+            WinCredit.Value = winCredit;
+
+            CurrentCredit.Value += WinCredit.Value;
+        }
 
         public long LoadCurrentData()
         {
@@ -34,5 +42,9 @@ namespace Game.Credits
             CurrentCredit.Subscribe(onAct);
         }
 
+        public void OnBindingWinContextPropertyChanged(Action<long> onAct)
+        {
+            WinCredit.Subscribe(onAct);
+        }
     }
 }

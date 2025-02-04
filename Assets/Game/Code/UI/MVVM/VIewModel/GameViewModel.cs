@@ -1,4 +1,5 @@
 using Game.Analytics;
+using Game.Credits;
 using Game.Lock;
 using Game.ScreenManager;
 using Game.Slot;
@@ -33,6 +34,13 @@ namespace Game.UI
             _creditRepository.OnBindingContextPropertyChanged(credit => currentCreditLabel.text = credit.ToString());
         }
 
+        public void SubscribeWinUpdate(Label currentWinLabel)
+        {
+            currentWinLabel.text = _creditRepository.LoadCurrentData().ToString();
+
+            _creditRepository.OnBindingWinContextPropertyChanged(credit => currentWinLabel.text = credit.ToString());
+        }
+
         public void SubscribeButtonOnLock(Button button)
         {
             _lockSystem.OnBindingContextPropertyChanged(isLock => button.SetEnabled(!isLock));
@@ -42,6 +50,11 @@ namespace Game.UI
         {
             _lockSystem.LockAll();
             _screenManager.GetOrCreate<CashInView>().Show();
+        }
+
+        public void ShowAdmin() 
+        {
+            _screenManager.GetOrCreate<AnalyticsView>().Show();
         }
 
         public void StartSpin()

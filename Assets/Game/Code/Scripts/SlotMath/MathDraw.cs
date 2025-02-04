@@ -5,33 +5,57 @@ namespace Game.SlotMath
 {
     public class MathDraw
     {
-        private int _jackpot = 300;
         private const int NUM_SYMBOLS = 10;
         private const int NUM_REELS = 3;
         private const int SYMBOLS_PER_REEL = 3;
         private const int CHANCE_JACKPOT = 200;
 
-        public (bool, long, long, List<int>[]) SimuteSpin()
+        /// <summary>
+        /// Random result of spin
+        /// </summary>
+        /// <returns>Is Win Jackpot, Prize, Draw Slots</returns>
+        public (bool, long, List<int>[]) SimuteSpin()
         {
             List<int>[] drawnNumbers = GenerateNumbersGrid();
 
             long prize = 0;
-            long jackpotPrize = 0;
+            if(CheckCenterLineWinner(drawnNumbers))
+                prize = PrizeCenterLineWinner(drawnNumbers);
+
             bool isWinJackpot = CheckJackpot();
             if (isWinJackpot)
             {
-                Debug.Log($"Jackpot activated! You won {_jackpot}!");
-                foreach (var row in drawnNumbers)
-                    row[1] = 10;
-
-                _jackpot = 300;
+                Debug.Log($"Jackpot activated! You won!");
             }
             else
             {
-                Debug.Log($"Jackpot not activated. Current jackpot value: {_jackpot}");
+                Debug.Log($"Jackpot not activated.");
             }
 
-            return (isWinJackpot, jackpotPrize, prize, drawnNumbers);
+            return (isWinJackpot, prize, drawnNumbers);
+        }
+
+        /// <summary>
+        /// Fake Random result of spin
+        /// </summary>
+        /// <returns>Is Win Jackpot, Jackpot Prize, Prize, Draw Slots</returns>
+        public (bool, long, List<int>[]) SimuteSpin(bool isWinJackpot)
+        {
+            List<int>[] drawnNumbers = GenerateNumbersGrid();
+
+            long prize = 0;
+
+
+            if (isWinJackpot)
+            {
+                Debug.Log($"Jackpot activated! You won!");
+            }
+            else
+            {
+                Debug.Log($"Jackpot not activated");
+            }
+
+            return (isWinJackpot, prize, drawnNumbers);
         }
 
         private List<int>[] GenerateNumbersGrid()
@@ -57,6 +81,39 @@ namespace Game.SlotMath
         private bool CheckJackpot()
         {
             return (Random.Range(1, CHANCE_JACKPOT + 1) == 1);
+        }
+
+        private bool CheckCenterLineWinner(List<int>[] reels) 
+        {
+            bool isWin = true;
+            int idSlot = reels[0][1];
+
+            for (int i = 0; i < reels.Length; i++)
+            {
+                if(idSlot == 10)
+                    idSlot = reels[i][1];
+
+                if(!(reels[i][1] == idSlot || reels[i][1] == 10))
+                {
+                    isWin = false;
+                    break;
+                }
+            }
+
+            return isWin;
+        }
+
+        private long PrizeCenterLineWinner(List<int>[] reels) 
+        {
+            int idSlot = reels[0][1];
+
+            for (int i = 0; i < reels.Length; i++)
+            {
+                if(idSlot == 10)
+                    idSlot = reels[i][1];
+            }
+
+            return idSlot;
         }
     }
 }

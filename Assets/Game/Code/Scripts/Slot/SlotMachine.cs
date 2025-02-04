@@ -1,5 +1,7 @@
 using Cysharp.Threading.Tasks;
 using Game.Analytics;
+using Game.Credits;
+using Game.Jackpot;
 using Game.Lock;
 using Game.SlotMath;
 using NUnit.Framework;
@@ -18,6 +20,8 @@ namespace Game.Slot
         [Inject] private LockSystem _lockSystem;
         [Inject] private IAnalytics _analytics;
         [Inject] private ICreditRepository _creditRepository;
+        [Inject] private IJackpotRepository _jackpotRepository;
+
 
         private const int DELAY_SHOW_RESULT = 5000;
         private const int INIT_SYMBOLS = 5;
@@ -35,7 +39,7 @@ namespace Game.Slot
             await UniTask.Delay(DELAY_SHOW_RESULT);
 
             MathDraw math = new MathDraw();
-            var (isWinJackpot, jackpotPrize, prize, drawnNumbers) = math.SimuteSpin();
+            var (isWinJackpot, prize, drawnNumbers) = math.SimuteSpin();
             for (int i = 0; i < drawnNumbers.Length; i++)
             {
                 List<SymbolData> symbols = new List<SymbolData>();
@@ -53,6 +57,8 @@ namespace Game.Slot
 
             await UniTask.Delay(1000);
             _lockSystem.UnlockAll();
+
+            _creditRepository.UpdateWinData(_jackpotRepository.Spinned(isWinJackpot) + prize);
         }
 
         private void GenerateInitRandomRows()

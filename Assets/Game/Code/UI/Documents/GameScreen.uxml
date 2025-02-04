@@ -22,7 +22,7 @@
                     </Bindings>
                 </engine:Button>
 
-                <engine:Button name="HelpButton" style="width: 40px;" text="Help">
+                <engine:Button name="HelpButton" style="width: 40px; display: none" text="Help">
                     <Bindings>
                         <UnityEngine.Localization.LocalizedString property="text" table="General" entry="HELP">
                         </UnityEngine.Localization.LocalizedString>
@@ -57,7 +57,7 @@
 
             </engine:VisualElement>
 
-            <engine:VisualElement name="BetElement" style="flex-direction: row">
+            <engine:VisualElement name="BetElement" style="flex-direction: row; display: none">
                 <engine:Button name="LessBetButton" text="-">
                 </engine:Button>
 
@@ -72,7 +72,7 @@
             </engine:VisualElement>
 
             <engine:VisualElement name="SpinElement" style="flex-direction: row">
-                <engine:Button name="AutoSpinButton" text="Auto">
+                <engine:Button name="AutoSpinButton" style="display: none" text="Auto">
                 </engine:Button>
 
                 <engine:Button name="SpinButton" text="Spin">

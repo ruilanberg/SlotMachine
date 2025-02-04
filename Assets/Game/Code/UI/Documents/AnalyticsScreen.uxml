@@ -5,5 +5,26 @@
     xmlns:editor="UnityEditor.UIElements"
     xsi:noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd"
 >
-    
+    <engine:VisualElement name="PanelElement" style="width: 100%; height: 100%; background-color: rgb(74, 71, 150);">
+        <engine:VisualElement name="HeaderElement" style="height: 100px; flex-direction: row-reverse">
+            <engine:Button name="CloseButton" text="X" style="width: 40px;">
+            </engine:Button>
+        </engine:VisualElement>
+
+        <engine:VisualElement name="LocalizationElement" style="height: 140px; flex-direction: row; justify-content: center">
+            <engine:Button name="EnglishButton" style="width: 200px;" text="EN">
+            </engine:Button>
+
+            <engine:Button name="SpanishButton" style="width: 200px;" text="ES">
+            </engine:Button>
+
+            <engine:Button name="PortuguesButton" style="width: 200px;" text="PT-BR">
+            </engine:Button>
+        </engine:VisualElement>
+
+        <engine:VisualElement name="AnalyticsItemsElement" style="width: 100%; justify-content: center">
+            <engine:ListView name="ReportList" style="width: 100%;">
+            </engine:ListView>
+        </engine:VisualElement>
+    </engine:VisualElement>
 </engine:UXML>

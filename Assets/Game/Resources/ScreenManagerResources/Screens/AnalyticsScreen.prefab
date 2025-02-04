@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 252855543972550229}
   - component: {fileID: 895661695583444697}
-  - component: {fileID: 372007603672749695}
-  - component: {fileID: 3604659485889435707}
+  - component: {fileID: -5790495390385098887}
+  - component: {fileID: 7732812593251671039}
   - component: {fileID: 637405537260663039}
   m_Layer: 0
-  m_Name: GameScreen
+  m_Name: AnalyticsScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,11 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 372007603672749695}
+  - {fileID: -5790495390385098887}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &372007603672749695
+--- !u!114 &-5790495390385098887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,11 +62,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5776473164717271767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe033b59b49ecf4683a5384a324d655, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d1aa11dfa30a4274ba962cea492964d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 3604659485889435707}
---- !u!114 &3604659485889435707
+  _view: {fileID: 7732812593251671039}
+--- !u!114 &7732812593251671039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,26 +75,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5776473164717271767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e59143b556ead4ea32a42cc5a5d67d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7577e3bffd8a043769a22dfd75f4a189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clickAdmin:
-    m_Name: Click Admin
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 39894fd1-773b-48b3-9085-7db07ac5753a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 2cb73150-b67b-4681-8a2d-635b3250f93c
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Click Admin
-      m_Flags: 0
-    m_Flags: 0
 --- !u!114 &637405537260663039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,8 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: db5bbbcae017236428785d0cdb9d2cf6, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: a6c3089d98e2c8d49ae522fc9d6d0736, type: 3}
-  m_SortingOrder: 0
+  sourceAsset: {fileID: 9197481963319205126, guid: f8095297b541f98499b8f186b1a3a250, type: 3}
+  m_SortingOrder: 1
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080

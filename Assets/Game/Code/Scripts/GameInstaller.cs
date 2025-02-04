@@ -14,6 +14,7 @@ namespace Game
         public override void InstallBindings()
         {
             _screenManager.GetOrCreate<GameView>().Show();
+            _screenManager.GetOrCreate<JackpotView>().Show();
         }
     }
 }

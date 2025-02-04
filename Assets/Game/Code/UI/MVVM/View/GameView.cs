@@ -1,6 +1,7 @@
 using Game.ScreenManager;
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using Zenject;
 
@@ -27,6 +28,7 @@ namespace Game.UI
 
         #endregion
 
+        [SerializeField] private InputAction _clickAdmin;
         private GameViewModel _gameViewModel;
 
         [Inject]
@@ -41,6 +43,7 @@ namespace Game.UI
             SetButtonBehaviors();
 
             _gameViewModel.SubscribeCreditUpdate(_currentCreditLabel);
+            _gameViewModel.SubscribeWinUpdate(_winCreditLabel);
 
             _gameViewModel.SubscribeButtonOnLock(_cashOutButton);
             _gameViewModel.SubscribeButtonOnLock(_helpButton);
@@ -49,6 +52,15 @@ namespace Game.UI
             _gameViewModel.SubscribeButtonOnLock(_maxBetButton);
             _gameViewModel.SubscribeButtonOnLock(_autoSpinButton);
             _gameViewModel.SubscribeButtonOnLock(_spinButton);
+
+            _clickAdmin.performed += AdminScreen;
+
+            _clickAdmin.Enable();
+        }
+
+        private void AdminScreen(InputAction.CallbackContext context)
+        {
+            _gameViewModel.ShowAdmin();
         }
 
         private void FindUIReferences()
